@@ -138,6 +138,12 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         return false
     }
     
+    @IBAction func gameDidPause(sender: UIButton) {
+        scene.stopTicking()
+        scene.stopThemeMusic()
+    }
+    
+    
     func gameDidEnd(swiftris: Swiftris) {
         view.userInteractionEnabled = false
         scene.stopTicking()
