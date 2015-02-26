@@ -37,6 +37,7 @@
 		C67441A71A9BFE5F001CE1AB /* SShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67441A61A9BFE5F001CE1AB /* SShape.swift */; };
 		C67441A91A9BFE8A001CE1AB /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67441A81A9BFE8A001CE1AB /* ZShape.swift */; };
 		C67441AB1A9BFF96001CE1AB /* Swiftris.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67441AA1A9BFF96001CE1AB /* Swiftris.swift */; };
+		C67441AD1A9E45EA001CE1AB /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67441AC1A9E45EA001CE1AB /* TitleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		C67441A61A9BFE5F001CE1AB /* SShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SShape.swift; sourceTree = "<group>"; };
 		C67441A81A9BFE8A001CE1AB /* ZShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZShape.swift; sourceTree = "<group>"; };
 		C67441AA1A9BFF96001CE1AB /* Swiftris.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftris.swift; sourceTree = "<group>"; };
+		C67441AC1A9E45EA001CE1AB /* TitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				C67441591A9BE48C001CE1AB /* AppDelegate.swift */,
 				C674415D1A9BE48C001CE1AB /* GameScene.swift */,
 				C674415F1A9BE48C001CE1AB /* GameViewController.swift */,
+				C67441AC1A9E45EA001CE1AB /* TitleViewController.swift */,
 				C67441611A9BE48C001CE1AB /* Main.storyboard */,
 				C67441641A9BE48C001CE1AB /* Images.xcassets */,
 				C67441661A9BE48C001CE1AB /* LaunchScreen.xib */,
@@ -318,6 +321,7 @@
 				C67441601A9BE48C001CE1AB /* GameViewController.swift in Sources */,
 				C67441A91A9BFE8A001CE1AB /* ZShape.swift in Sources */,
 				C674415A1A9BE48C001CE1AB /* AppDelegate.swift in Sources */,
+				C67441AD1A9E45EA001CE1AB /* TitleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
