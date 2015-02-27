@@ -49,8 +49,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
 
 
     }
-
-
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -142,7 +141,11 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.stopTicking()
         scene.stopThemeMusic()
     }
-    
+
+    @IBAction func gameDidResume() {
+        scene.startTicking()
+    }
+
     
     func gameDidEnd(swiftris: Swiftris) {
         view.userInteractionEnabled = false
@@ -198,3 +201,4 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.redrawShape(swiftris.fallingShape!) {}
     }
 }
+

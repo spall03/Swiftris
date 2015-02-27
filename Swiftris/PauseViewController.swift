@@ -9,13 +9,20 @@
 import UIKit
 import SpriteKit
 
-
 class PauseViewController: UIViewController
 {
     
-    @IBAction func didExitGame(sender: UIButton)
+    @IBAction func unwindToGameController(sender: UIStoryboardSegue)
     {
-        
+        // We need to tell our destination that we have resumed game play
+        dismissViewControllerAnimated(true, completion: nil)
     }
+
+    @IBAction func didExitGame(sender: UIStoryboardSegue)
+    {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+
 }
 
