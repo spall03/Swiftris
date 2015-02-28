@@ -144,6 +144,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
 
     @IBAction func gameDidResume() {
         scene.startTicking()
+        scene.resumeThemeMusic()
     }
 
     
@@ -199,6 +200,16 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     // #3
     func gameShapeDidMove(swiftris: Swiftris) {
         scene.redrawShape(swiftris.fallingShape!) {}
+    }
+    
+    @IBAction func unwindToGameViewController(segue: UIStoryboardSegue)
+    {
+        if let pauseViewController = segue.sourceViewController as? PauseViewController
+        {
+            gameDidResume()
+        }
+        
+        
     }
 }
 

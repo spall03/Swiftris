@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OuO-AC-9x2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OuO-AC-9x2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Title View Controller-->
@@ -114,7 +114,7 @@
                                 </state>
                                 <connections>
                                     <action selector="gameDidPause:" destination="LVB-YS-i5n" eventType="touchUpInside" id="lSY-Yc-vud"/>
-                                    <segue destination="l9G-Mb-Bwa" kind="presentation" id="M3b-N7-KrC"/>
+                                    <segue destination="l9G-Mb-Bwa" kind="presentation" modalPresentationStyle="pageSheet" modalTransitionStyle="flipHorizontal" id="M3b-N7-KrC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -168,42 +168,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffd-Ka-Lpg">
-                                <rect key="frame" x="129" y="298" width="116" height="30"/>
+                                <rect key="frame" x="80" y="302" width="215" height="30"/>
+                                <color key="backgroundColor" red="0.35294117650000001" green="0.73333333329999995" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                 <state key="normal" title="Continue Game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="unwindToGameController:" destination="l9G-Mb-Bwa" eventType="touchUpInside" id="i49-Br-ueq"/>
-                                    <segue destination="fZh-Qw-Jf6" kind="unwind" identifier="ContinueGame" unwindAction="unwindToGameController:" id="NFb-A8-QmS"/>
+                                    <segue destination="fZh-Qw-Jf6" kind="unwind" unwindAction="unwindToGameViewController:" id="982-58-GIK"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Paused" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4D-t4-thu">
+                                <rect key="frame" x="77" y="176" width="221" height="131"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="35"/>
+                                <color key="textColor" red="0.48373842592592592" green="0.55180419387037039" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlF-Lb-c5z">
-                                <rect key="frame" x="129" y="348" width="116" height="30"/>
+                                <rect key="frame" x="80" y="361" width="215" height="30"/>
+                                <color key="backgroundColor" red="0.85516608865172772" green="0.80652604235542924" blue="0.53881770902209802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                 <state key="normal" title="Exit Game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="didExitGame:" destination="l9G-Mb-Bwa" eventType="touchUpInside" id="JkY-r2-spg"/>
-                                    <segue destination="fZh-Qw-Jf6" kind="unwind" identifier="ExitGame" unwindAction="didExitGame:" id="xiY-WN-W81"/>
+                                    <segue destination="fZh-Qw-Jf6" kind="unwind" unwindAction="unwindToTitleViewController:" id="ItQ-oh-fl4"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pause" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJ3-pP-CRH">
-                                <rect key="frame" x="163" y="243" width="48" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.5450980392" green="0.4549019608" blue="0.76078431369999999" alpha="0.58999999999999997" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="300" height="400"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhb-GM-HyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fZh-Qw-Jf6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="955.5" y="1304.5"/>
+            <point key="canvasLocation" x="955.5" y="1255.5"/>
         </scene>
     </scenes>
     <resources>

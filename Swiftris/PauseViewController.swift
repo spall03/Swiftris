@@ -20,8 +20,9 @@ class PauseViewController: UIViewController
 
     @IBAction func didExitGame(sender: UIStoryboardSegue)
     {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(false, completion: nil)
     }
+    
 
 
 }
