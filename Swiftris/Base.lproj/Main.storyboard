@@ -34,6 +34,9 @@
                                 <state key="normal" title="Timed Swiftris">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Pcw-35-YUM" kind="show" id="Bcd-WS-1bA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Your Game" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRA-Te-frT">
                                 <rect key="frame" x="92" y="204" width="190" height="131"/>
@@ -153,7 +156,128 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1213.5" y="402.5"/>
+            <point key="canvasLocation" x="1247.5" y="830.5"/>
+        </scene>
+        <!--Timed Game View Controller-->
+        <scene sceneID="7iH-qG-4Gs">
+            <objects>
+                <viewController id="Pcw-35-YUM" customClass="TimedGameViewController" customModule="Swiftris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pPd-ch-nYg"/>
+                        <viewControllerLayoutGuide type="bottom" id="XKx-zy-SaJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xh5-G3-73U" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1YO-oj-LZC">
+                                <rect key="frame" x="224" y="118" width="84" height="100"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebF-7w-sOw">
+                                <rect key="frame" x="224" y="237" width="84" height="100"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whitebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="vgr-ap-xd7">
+                                <rect key="frame" x="275" y="118" width="84" height="100"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SCORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klo-MK-fkw">
+                                <rect key="frame" x="282" y="138" width="70" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="0.1333333333" green="0.64705882349999999" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax8-BG-h1T">
+                                <rect key="frame" x="275" y="163" width="84" height="39"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="35"/>
+                                <color key="textColor" red="0.1333333333" green="0.64705882349999999" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whitebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="JdM-PE-ozP">
+                                <rect key="frame" x="275" y="237" width="84" height="100"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LEVEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx6-p3-O6I">
+                                <rect key="frame" x="282" y="257" width="70" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="0.5450980392" green="0.4549019608" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXq-zA-2eP">
+                                <rect key="frame" x="275" y="282" width="84" height="39"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="35"/>
+                                <color key="textColor" red="0.5450980392" green="0.4549019608" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whitebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="bxE-kj-HjK">
+                                <rect key="frame" x="275" y="356" width="84" height="100"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0o9-Zz-NlK">
+                                <rect key="frame" x="282" y="378" width="70" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="0.92941182851791382" green="0.80392163991928101" blue="0.23921570181846619" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jz-m1-EXZ">
+                                <rect key="frame" x="275" y="407" width="84" height="39"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="35"/>
+                                <color key="textColor" red="0.92941182850000004" green="0.80392163989999998" blue="0.23921570180000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYS-ti-npo">
+                                <rect key="frame" x="275" y="473" width="84" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="PAUSE">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="gameDidPause:" destination="Pcw-35-YUM" eventType="touchUpInside" id="jsb-UL-wWh"/>
+                                    <segue destination="l9G-Mb-Bwa" kind="presentation" modalPresentationStyle="pageSheet" modalTransitionStyle="flipHorizontal" id="sk9-3k-K4X"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="VMp-se-BPe" appends="YES" id="Rs6-ND-FxW"/>
+                            <outletCollection property="gestureRecognizers" destination="hal-FL-lqO" appends="YES" id="qMa-wO-pO7"/>
+                            <outletCollection property="gestureRecognizers" destination="iE9-RB-SrD" appends="YES" id="6b7-hr-fMo"/>
+                        </connections>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="levelLabel" destination="HXq-zA-2eP" id="Gig-db-QsL"/>
+                        <outlet property="scoreLabel" destination="ax8-BG-h1T" id="oAP-8X-8pP"/>
+                        <outlet property="timeLabel" destination="2Jz-m1-EXZ" id="QW3-Z5-T3b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wek-Jh-wV4" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VMp-se-BPe">
+                    <connections>
+                        <action selector="didTap:" destination="Pcw-35-YUM" id="2Lb-g4-5Qb"/>
+                        <outlet property="delegate" destination="Pcw-35-YUM" id="kYE-98-fic"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="hal-FL-lqO">
+                    <connections>
+                        <action selector="didPan:" destination="Pcw-35-YUM" id="phj-Yz-CWw"/>
+                        <outlet property="delegate" destination="Pcw-35-YUM" id="6UY-cQ-2GE"/>
+                    </connections>
+                </panGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="iE9-RB-SrD">
+                    <connections>
+                        <action selector="didSwipe:" destination="Pcw-35-YUM" id="izV-HL-Lgc"/>
+                        <outlet property="delegate" destination="Pcw-35-YUM" id="s0R-mR-HIp"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1247.5" y="-15.5"/>
         </scene>
         <!--Pause View Controller-->
         <scene sceneID="vcZ-23-hgN">
@@ -208,10 +332,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhb-GM-HyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fZh-Qw-Jf6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="955.5" y="1255.5"/>
+            <point key="canvasLocation" x="1793.5" y="402.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="whitebg.png" width="84" height="100"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="sk9-3k-K4X"/>
+    </inferredMetricsTieBreakers>
 </document>

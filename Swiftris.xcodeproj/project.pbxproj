@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C61172ED1AA15BE000D32A61 /* TimedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61172EC1AA15BE000D32A61 /* TimedGameViewController.swift */; };
 		C674415A1A9BE48C001CE1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67441591A9BE48C001CE1AB /* AppDelegate.swift */; };
 		C674415E1A9BE48C001CE1AB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674415D1A9BE48C001CE1AB /* GameScene.swift */; };
 		C67441601A9BE48C001CE1AB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674415F1A9BE48C001CE1AB /* GameViewController.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C61172EC1AA15BE000D32A61 /* TimedGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedGameViewController.swift; sourceTree = "<group>"; };
 		C67441541A9BE48C001CE1AB /* Swiftris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67441581A9BE48C001CE1AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C67441591A9BE48C001CE1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				C67441AE1A9EB472001CE1AB /* PauseViewController.swift */,
 				C674415F1A9BE48C001CE1AB /* GameViewController.swift */,
+				C61172EC1AA15BE000D32A61 /* TimedGameViewController.swift */,
 				C67441AC1A9E45EA001CE1AB /* TitleViewController.swift */,
 			);
 			name = "View Controllers";
@@ -326,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C61172ED1AA15BE000D32A61 /* TimedGameViewController.swift in Sources */,
 				C67441A31A9BFDCD001CE1AB /* LShape.swift in Sources */,
 				C67441AF1A9EB472001CE1AB /* PauseViewController.swift in Sources */,
 				C674419D1A9BFC37001CE1AB /* SquareShape.swift in Sources */,
@@ -533,6 +537,7 @@
 				C67441791A9BE48C001CE1AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C674417A1A9BE48C001CE1AB /* Build configuration list for PBXNativeTarget "SwiftrisTests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +546,7 @@
 				C674417C1A9BE48C001CE1AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
