@@ -153,9 +153,29 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.stopTicking()
         scene.playSound("gameover.mp3")
         scene.animateCollapsingLines(swiftris.removeAllBlocks(), fallenBlocks: Array<Array<Block>>()) {
-            swiftris.beginGame()
+            //swiftris.beginGame()
         }
+       
+        let endGameAlertViewController = UIAlertController(title: "Game Over!", message: "Congrats! You scored \(swiftris.score)", preferredStyle: UIAlertControllerStyle.Alert)
+        let endGameOKButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action) in
+            
+            //let titleScreenVC = self.navigationController?.viewControllerForUnwindSegueAction("unwindToTitleViewController:", fromViewController: self, withSender: self)
+            
+//            let unwindSegue = self.segueForUnwindingToViewController
+//            unwindSegue.perform()
+            
+            self.performSegueWithIdentifier("GameOverSegue", sender: self)
+            
+        }
+        
+        endGameAlertViewController.addAction(endGameOKButton)
+        
+        presentViewController(endGameAlertViewController, animated: true, completion: nil)
+    
     }
+    
+        
+        
     
     func gameDidLevelUp(swiftris: Swiftris) {
         

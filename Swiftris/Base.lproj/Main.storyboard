@@ -134,9 +134,11 @@
                     <connections>
                         <outlet property="levelLabel" destination="cHj-as-mez" id="5O5-vo-dNm"/>
                         <outlet property="scoreLabel" destination="u8a-aU-t9l" id="AiZ-QM-1Wp"/>
+                        <segue destination="p7C-Sd-aMN" kind="unwind" identifier="GameOverSegue" unwindAction="unwindToTitleViewController:" id="ivh-h9-hE6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
+                <exit id="p7C-Sd-aMN" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="gh2-Jh-btA">
                     <connections>
                         <action selector="didTap:" destination="LVB-YS-i5n" id="lkH-dL-GuH"/>
@@ -255,9 +257,11 @@
                         <outlet property="levelLabel" destination="HXq-zA-2eP" id="Gig-db-QsL"/>
                         <outlet property="scoreLabel" destination="ax8-BG-h1T" id="oAP-8X-8pP"/>
                         <outlet property="timeLabel" destination="2Jz-m1-EXZ" id="QW3-Z5-T3b"/>
+                        <segue destination="HeR-T3-Jj1" kind="unwind" identifier="GameOverSegue" unwindAction="unwindToTitleViewController:" id="0iP-ll-gWd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wek-Jh-wV4" sceneMemberID="firstResponder"/>
+                <exit id="HeR-T3-Jj1" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="VMp-se-BPe">
                     <connections>
                         <action selector="didTap:" destination="Pcw-35-YUM" id="2Lb-g4-5Qb"/>
@@ -320,7 +324,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didExitGame:" destination="l9G-Mb-Bwa" eventType="touchUpInside" id="JkY-r2-spg"/>
-                                    <segue destination="fZh-Qw-Jf6" kind="unwind" unwindAction="unwindToTitleViewController:" id="ItQ-oh-fl4"/>
+                                    <segue destination="fZh-Qw-Jf6" kind="unwind" identifier="GameOverSegue" unwindAction="unwindToTitleViewController:" id="ItQ-oh-fl4"/>
                                 </connections>
                             </button>
                         </subviews>

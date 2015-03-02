@@ -14,7 +14,7 @@ class TimedGameViewController: GameViewController
     
     var gameTimer: NSTimer!
     var secondTimer: NSTimer!
-    var secondsLeft = 10
+    var secondsLeft = 120
     @IBOutlet weak var timeLabel: UILabel!
     
     override func gameDidBegin(swiftris: Swiftris)
@@ -36,6 +36,13 @@ class TimedGameViewController: GameViewController
     {
         secondsLeft -= 1
         timeLabel.text = "\(self.secondsLeft)"
+        
+        //turn off the second timer when time is fully elapsed
+        if secondsLeft == 0
+        {
+            secondTimer.invalidate()
+        }
+        
     }
     
     
