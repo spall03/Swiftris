@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C61172ED1AA15BE000D32A61 /* TimedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61172EC1AA15BE000D32A61 /* TimedGameViewController.swift */; };
+		C61172EF1AA51CD200D32A61 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C61172EE1AA51CD200D32A61 /* GameKit.framework */; };
+		C61172F11AA5265B00D32A61 /* GameKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61172F01AA5265B00D32A61 /* GameKitHelper.swift */; };
 		C674415A1A9BE48C001CE1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67441591A9BE48C001CE1AB /* AppDelegate.swift */; };
 		C674415E1A9BE48C001CE1AB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674415D1A9BE48C001CE1AB /* GameScene.swift */; };
 		C67441601A9BE48C001CE1AB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674415F1A9BE48C001CE1AB /* GameViewController.swift */; };
@@ -54,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		C61172EC1AA15BE000D32A61 /* TimedGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedGameViewController.swift; sourceTree = "<group>"; };
+		C61172EE1AA51CD200D32A61 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		C61172F01AA5265B00D32A61 /* GameKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKitHelper.swift; sourceTree = "<group>"; };
 		C67441541A9BE48C001CE1AB /* Swiftris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67441581A9BE48C001CE1AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C67441591A9BE48C001CE1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C61172EF1AA51CD200D32A61 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +118,7 @@
 		C674414B1A9BE48C001CE1AB = {
 			isa = PBXGroup;
 			children = (
+				C61172EE1AA51CD200D32A61 /* GameKit.framework */,
 				C67441561A9BE48C001CE1AB /* Swiftris */,
 				C67441701A9BE48C001CE1AB /* SwiftrisTests */,
 				C67441551A9BE48C001CE1AB /* Products */,
@@ -213,6 +219,7 @@
 				C67441A61A9BFE5F001CE1AB /* SShape.swift */,
 				C67441A81A9BFE8A001CE1AB /* ZShape.swift */,
 				C67441AA1A9BFF96001CE1AB /* Swiftris.swift */,
+				C61172F01AA5265B00D32A61 /* GameKitHelper.swift */,
 			);
 			name = "Data Models";
 			sourceTree = "<group>";
@@ -266,6 +273,12 @@
 				TargetAttributes = {
 					C67441531A9BE48C001CE1AB = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = PQWCGM5H9E;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					C674416C1A9BE48C001CE1AB = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -333,6 +346,7 @@
 				C67441A31A9BFDCD001CE1AB /* LShape.swift in Sources */,
 				C67441AF1A9EB472001CE1AB /* PauseViewController.swift in Sources */,
 				C674419D1A9BFC37001CE1AB /* SquareShape.swift in Sources */,
+				C61172F11AA5265B00D32A61 /* GameKitHelper.swift in Sources */,
 				C674415E1A9BE48C001CE1AB /* GameScene.swift in Sources */,
 				C67441A51A9BFE3D001CE1AB /* JShape.swift in Sources */,
 				C67441AB1A9BFF96001CE1AB /* Swiftris.swift in Sources */,
@@ -468,9 +482,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Swiftris/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -478,9 +495,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Swiftris/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
