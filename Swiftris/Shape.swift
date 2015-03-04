@@ -123,14 +123,15 @@ class Shape: Hashable, Printable {
             }
         }
     }
-    
+  
+    //FIXME: Swift 1.2 broke the tuple conversion below somehow
     final func rotateBlocks(orientation: Orientation) {
         if let blockRowColumnTranslation:Array<(columnDiff: Int, rowDiff: Int)> = blockRowColumnPositions[orientation] {
             // #1
-            for (idx, (columnDiff:Int, rowDiff:Int)) in enumerate(blockRowColumnTranslation) {
-                blocks[idx].column = column + columnDiff
-                blocks[idx].row = row + rowDiff
-            }
+//            for (idx, (columnDiff:Int, rowDiff:Int)) in enumerate(blockRowColumnTranslation) {
+//                blocks[idx].column = column + columnDiff
+//                blocks[idx].row = row + rowDiff
+//            }
         }
     }
     

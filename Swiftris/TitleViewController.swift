@@ -16,7 +16,16 @@ class TitleViewController: UIViewController
     
     override func viewDidAppear(animated: Bool)
     {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showAuthenticationViewController", name: "present_authentication_view_controller", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showAuthenticationViewController", name: SPPresentAuthenticationViewController, object: nil)
+        
+        GameKitHelper.sharedInstance.authenticateLocalPlayer()
+    }
+    
+    func showAuthenticationViewController()
+    {
+        
+        self.presentViewController(GameKitHelper.sharedInstance.authenticationViewController, animated: true, completion: nil)
+        
         
     }
     

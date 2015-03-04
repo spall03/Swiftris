@@ -9,21 +9,23 @@
 import Foundation
 import GameKit
 
+let SPPresentAuthenticationViewController = "present_authentication_view_controller"
+
+private let singletonInstance = GameKitHelper()
+
 class GameKitHelper: NSObject
 {
     
-    let PresentAuthenticationViewController = "present_authentication_view_controller"
     
     var authenticationViewController: UIViewController!
     var lastError: NSError?
     var enableGameCenter: Bool = true
+
+    class var sharedInstance: GameKitHelper
+    {
+            return singletonInstance
+    }
     
-//    func sharedGameKitHelper() -> GameKitHelper
-//    {
-//        let sharedInstance = GameKitHelper()
-//        
-//        return sharedInstance
-//    }
     
     func authenticateLocalPlayer()
     {
@@ -34,10 +36,10 @@ class GameKitHelper: NSObject
             
             self.lastError = error
             
-            if (vc? != nil)
+            if (vc != nil)
             {
                 self.authenticationViewController = vc
-                NSNotificationCenter.defaultCenter().postNotificationName(self.PresentAuthenticationViewController, object: self)
+                NSNotificationCenter.defaultCenter().postNotificationName(SPPresentAuthenticationViewController, object: self)
                 
             }
             else if (localPlayer.authenticated)

@@ -29,7 +29,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         super.viewDidLoad()
         
         //Configure the view.
-        let skView = view as SKView
+        let skView = view as! SKView
         skView.multipleTouchEnabled = false
         
         //Create and configure the scene.
@@ -119,12 +119,12 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         
     }
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
     // #2
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if let swipeRec = gestureRecognizer as? UISwipeGestureRecognizer {
             if let panRec = otherGestureRecognizer as? UIPanGestureRecognizer {
                 return true
