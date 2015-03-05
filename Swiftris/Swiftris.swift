@@ -122,7 +122,6 @@ class Swiftris {
     }
     
     func endGame() {
-        score = 0
         level = 1
         delegate?.gameDidEnd(self)
     }

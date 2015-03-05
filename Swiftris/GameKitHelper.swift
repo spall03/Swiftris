@@ -13,7 +13,7 @@ let SPPresentAuthenticationViewController = "present_authentication_view_control
 
 private let singletonInstance = GameKitHelper()
 
-class GameKitHelper: NSObject
+class GameKitHelper: NSObject, GKGameCenterControllerDelegate
 {
     
     
@@ -58,5 +58,45 @@ class GameKitHelper: NSObject
         
         }
     }
+    
+    //saves a high score to a Game Center leaderboard
+    func saveToLeaderboard(score: Int)
+    {
+        
+        if GKLocalPlayer.localPlayer().authenticated
+        {
+            
+            var scoreReporter = GKScore(leaderboardIdentifier: "SJPSwiftrisHighScores")
+            scoreReporter.value = Int64(score)
+            
+            var scoreArray: [GKScore] = [scoreReporter]
+            
+            GKScore.reportScores(scoreArray, withCompletionHandler: { (error: NSError!) -> Void in
+                
+                if error != nil
+                {
+                        print("Score upload to Game Center didn't work.")
+                }
+            })
+            
+        }
+        
+    }
+    
+    //shows leaderboard screen
+    func showLeaderboard(viewController: UIViewController)
+    {
+        let gameCenterViewController = GKGameCenterViewController()
+        gameCenterViewController.gameCenterDelegate = self
+        
+        viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
+    }
+    
+    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!)
+    {
+        gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
 
 }

@@ -29,6 +29,12 @@ class TitleViewController: UIViewController
         
     }
     
+    @IBAction func showHighScores(sender: UIButton) {
+        
+        GameKitHelper.sharedInstance.showLeaderboard(self)
+        
+    }
+    
     @IBAction func unwindToTitleViewController(segue: UIStoryboardSegue)
     {
         
