@@ -12,6 +12,8 @@ import SpriteKit
 class PauseViewController: UIViewController
 {
     
+    //var gameScore: Int!
+    
     @IBAction func unwindToGameController(sender: UIStoryboardSegue)
     {
         // We need to tell our destination that we have resumed game play
@@ -20,6 +22,12 @@ class PauseViewController: UIViewController
 
     @IBAction func didExitGame(sender: UIStoryboardSegue)
     {
+    
+        
+//        print("game score is \(gameScore)")
+//        //need to send score to leaderboard when game ends
+//        GameKitHelper.sharedInstance.saveToLeaderboard(gameScore)
+        
         dismissViewControllerAnimated(false, completion: nil)
     }
     

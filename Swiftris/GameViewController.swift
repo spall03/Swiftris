@@ -140,6 +140,14 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     @IBAction func gameDidPause(sender: UIButton) {
         scene.stopTicking()
         scene.stopThemeMusic()
+        
+//        let pauseViewController = PauseViewController()
+//        pauseViewController.gameScore = swiftris.score
+//        
+//        let segue = UIStoryboardSegue(identifier: "PauseGameSegue", source: self, destination: pauseViewController)
+//        
+//        self.performSegueWithIdentifier(, sender: self)
+        
     }
 
     @IBAction func gameDidResume() {
@@ -219,9 +227,14 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     
     @IBAction func unwindToGameViewController(segue: UIStoryboardSegue)
     {
-        if let pauseViewController = segue.sourceViewController as? PauseViewController
+        if segue.identifier == "ContinueGame"
         {
             gameDidResume()
+        }
+        else if segue.identifier == "EndGame"
+        {
+            GameKitHelper.sharedInstance.saveToLeaderboard(swiftris.score)
+            dismissViewControllerAnimated(false, completion: nil)
         }
         
         

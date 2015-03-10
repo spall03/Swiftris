@@ -158,6 +158,12 @@ class Swiftris {
             delegate?.gameDidLevelUp(self)
         }
         
+        //check to see if an achievement has been hit
+        if score >= 100
+        {
+            GameKitHelper.sharedInstance.reportAchievement("SJPSwiftrisHit100Points", percentComplete: 100.0)
+        }
+        
         var fallenBlocks = Array<Array<Block>>()
         for column in 0..<NumColumns {
             var fallenBlocksArray = Array<Block>()

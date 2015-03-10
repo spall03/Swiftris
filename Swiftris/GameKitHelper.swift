@@ -69,7 +69,7 @@ class GameKitHelper: NSObject, GKGameCenterControllerDelegate
             var scoreReporter = GKScore(leaderboardIdentifier: "SJPSwiftrisHighScores")
             scoreReporter.value = Int64(score)
             
-            var scoreArray: [GKScore] = [scoreReporter]
+            let scoreArray: [GKScore] = [scoreReporter]
             
             GKScore.reportScores(scoreArray, withCompletionHandler: { (error: NSError!) -> Void in
                 
@@ -79,6 +79,29 @@ class GameKitHelper: NSObject, GKGameCenterControllerDelegate
                 }
             })
             
+        }
+        
+    }
+    
+    func reportAchievement(identifier:String, percentComplete:Double)
+    {
+        
+        if GKLocalPlayer.localPlayer().authenticated
+        {
+        
+            let achievement = GKAchievement(identifier: identifier)
+            achievement.percentComplete = percentComplete
+            achievement.showsCompletionBanner = true
+            
+            let achievementArray: [GKAchievement] = [achievement]
+            
+            GKAchievement.reportAchievements(achievementArray, withCompletionHandler: { (error:NSError!) -> Void in
+                if error != nil
+                {
+                    print("Achievement upload to Game Center didn't work.")
+                }
+            })
+       
         }
         
     }

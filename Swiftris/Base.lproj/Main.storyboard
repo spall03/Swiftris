@@ -128,7 +128,7 @@
                                 </state>
                                 <connections>
                                     <action selector="gameDidPause:" destination="LVB-YS-i5n" eventType="touchUpInside" id="lSY-Yc-vud"/>
-                                    <segue destination="l9G-Mb-Bwa" kind="presentation" modalPresentationStyle="pageSheet" modalTransitionStyle="flipHorizontal" id="M3b-N7-KrC"/>
+                                    <segue destination="l9G-Mb-Bwa" kind="presentation" modalPresentationStyle="pageSheet" modalTransitionStyle="flipHorizontal" id="Bvy-mp-aaD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -316,7 +316,7 @@
                                 </state>
                                 <connections>
                                     <action selector="unwindToGameController:" destination="l9G-Mb-Bwa" eventType="touchUpInside" id="i49-Br-ueq"/>
-                                    <segue destination="fZh-Qw-Jf6" kind="unwind" unwindAction="unwindToGameViewController:" id="982-58-GIK"/>
+                                    <segue destination="fZh-Qw-Jf6" kind="unwind" identifier="ContinueGame" unwindAction="unwindToGameViewController:" id="982-58-GIK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Paused" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4D-t4-thu">
@@ -334,8 +334,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="didExitGame:" destination="l9G-Mb-Bwa" eventType="touchUpInside" id="JkY-r2-spg"/>
-                                    <segue destination="fZh-Qw-Jf6" kind="unwind" identifier="GameOverSegue" unwindAction="unwindToTitleViewController:" id="ItQ-oh-fl4"/>
+                                    <segue destination="fZh-Qw-Jf6" kind="unwind" identifier="EndGame" unwindAction="unwindToGameViewController:" id="ftm-ot-k8g"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -354,6 +353,6 @@
         <image name="whitebg.png" width="84" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sk9-3k-K4X"/>
+        <segue reference="Bvy-mp-aaD"/>
     </inferredMetricsTieBreakers>
 </document>
