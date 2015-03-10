@@ -28,6 +28,11 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     {
         super.viewDidLoad()
         
+        //add listener for when game enters background or foreground
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameDidEnterBackground", name: swiftrisDidEnterBackground, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameDidResume", name: swiftrisDidEnterForeground, object: nil)
+        
+        
         //Configure the view.
         let skView = view as! SKView
         skView.multipleTouchEnabled = false
@@ -135,6 +140,20 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
             }
         }
         return false
+    }
+    
+    func gameDidEnterBackground()
+    {
+        scene.stopTicking()
+        scene.stopThemeMusic()
+        
+        print("Game entered background!")
+        
+//        let pauseViewController = PauseViewController()
+//        self.presentViewController(pauseViewController, animated: false, completion: nil)
+        
+        
+        
     }
     
     @IBAction func gameDidPause(sender: UIButton) {
