@@ -30,7 +30,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         
         //add listener for when game enters background or foreground
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameDidEnterBackground", name: swiftrisDidEnterBackground, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameDidResume", name: swiftrisDidEnterForeground, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameDidEnterForeground", name: swiftrisDidEnterForeground, object: nil)
         
         
         //Configure the view.
@@ -62,7 +62,16 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func didTick() {
         swiftris.letShapeFall()
         swiftris.fallingShape?.lowerShapeByOneRow()
-        scene.redrawShape(swiftris.fallingShape!, completion: {})
+        
+        if (swiftris.fallingShape != nil)
+        {
+            scene.redrawShape(swiftris.fallingShape!, completion: {})
+        }
+        else
+        {
+            print("Hit timing bug!")
+            
+        }
     }
     
     func nextShape() {
@@ -149,8 +158,9 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         
         print("Game entered background!")
         
-//        let pauseViewController = PauseViewController()
-//        self.presentViewController(pauseViewController, animated: false, completion: nil)
+    
+        
+        self.performSegueWithIdentifier("PauseScreenSegue", sender: self)
         
         
         
@@ -173,11 +183,19 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.startTicking()
         scene.resumeThemeMusic()
     }
+    
+    func gameDidEnterForeground()
+    {
+        print("Game entered foreground!")
+        
+        
+    }
 
     
     func gameDidEnd(swiftris: Swiftris) {
         view.userInteractionEnabled = false
         scene.stopTicking()
+        scene.stopThemeMusic()  
         scene.playSound("gameover.mp3")
         scene.animateCollapsingLines(swiftris.removeAllBlocks(), fallenBlocks: Array<Array<Block>>()) {
 

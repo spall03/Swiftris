@@ -128,7 +128,7 @@
                                 </state>
                                 <connections>
                                     <action selector="gameDidPause:" destination="LVB-YS-i5n" eventType="touchUpInside" id="lSY-Yc-vud"/>
-                                    <segue destination="l9G-Mb-Bwa" kind="presentation" modalPresentationStyle="pageSheet" modalTransitionStyle="flipHorizontal" id="Bvy-mp-aaD"/>
+                                    <segue destination="l9G-Mb-Bwa" kind="presentation" identifier="PauseScreenSegue" modalPresentationStyle="pageSheet" modalTransitionStyle="flipHorizontal" id="Bvy-mp-aaD"/>
                                 </connections>
                             </button>
                         </subviews>
