@@ -28,8 +28,13 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     {
         super.viewDidLoad()
         
+        //add listener for when game enters background or foreground
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameDidEnterBackground", name: swiftrisDidEnterBackground, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gameDidEnterForeground", name: swiftrisDidEnterForeground, object: nil)
+        
+        
         //Configure the view.
-        let skView = view as SKView
+        let skView = view as! SKView
         skView.multipleTouchEnabled = false
         
         //Create and configure the scene.
@@ -49,8 +54,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
 
 
     }
-
-
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -58,7 +62,16 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func didTick() {
         swiftris.letShapeFall()
         swiftris.fallingShape?.lowerShapeByOneRow()
-        scene.redrawShape(swiftris.fallingShape!, completion: {})
+        
+        if (swiftris.fallingShape != nil)
+        {
+            scene.redrawShape(swiftris.fallingShape!, completion: {})
+        }
+        else
+        {
+            print("Hit timing bug!")
+            
+        }
     }
     
     func nextShape() {
@@ -120,12 +133,12 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         
     }
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
     // #2
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if let swipeRec = gestureRecognizer as? UISwipeGestureRecognizer {
             if let panRec = otherGestureRecognizer as? UIPanGestureRecognizer {
                 return true
@@ -138,14 +151,71 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         return false
     }
     
+    func gameDidEnterBackground()
+    {
+        scene.stopTicking()
+        scene.stopThemeMusic()
+        
+        print("Game entered background!")
+        
+    
+        
+        self.performSegueWithIdentifier("PauseScreenSegue", sender: self)
+        
+        
+        
+    }
+    
+    @IBAction func gameDidPause(sender: UIButton) {
+        scene.stopTicking()
+        scene.stopThemeMusic()
+        
+//        let pauseViewController = PauseViewController()
+//        pauseViewController.gameScore = swiftris.score
+//        
+//        let segue = UIStoryboardSegue(identifier: "PauseGameSegue", source: self, destination: pauseViewController)
+//        
+//        self.performSegueWithIdentifier(, sender: self)
+        
+    }
+
+    @IBAction func gameDidResume() {
+        scene.startTicking()
+        scene.resumeThemeMusic()
+    }
+    
+    func gameDidEnterForeground()
+    {
+        print("Game entered foreground!")
+        
+        
+    }
+
+    
     func gameDidEnd(swiftris: Swiftris) {
         view.userInteractionEnabled = false
         scene.stopTicking()
+        scene.stopThemeMusic()  
         scene.playSound("gameover.mp3")
         scene.animateCollapsingLines(swiftris.removeAllBlocks(), fallenBlocks: Array<Array<Block>>()) {
-            swiftris.beginGame()
+
         }
+        
+        GameKitHelper.sharedInstance.saveToLeaderboard(swiftris.score)
+       
+        let endGameAlertViewController = UIAlertController(title: "Game Over!", message: "Congrats! You scored \(swiftris.score)", preferredStyle: UIAlertControllerStyle.Alert)
+        let endGameOKButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action) in
+            
+            self.performSegueWithIdentifier("GameOverSegue", sender: self)
+            
+        }
+        
+        endGameAlertViewController.addAction(endGameOKButton)
+        
+        presentViewController(endGameAlertViewController, animated: true, completion: nil)
+    
     }
+    
     
     func gameDidLevelUp(swiftris: Swiftris) {
         
@@ -191,4 +261,20 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func gameShapeDidMove(swiftris: Swiftris) {
         scene.redrawShape(swiftris.fallingShape!) {}
     }
+    
+    @IBAction func unwindToGameViewController(segue: UIStoryboardSegue)
+    {
+        if segue.identifier == "ContinueGame"
+        {
+            gameDidResume()
+        }
+        else if segue.identifier == "EndGame"
+        {
+            GameKitHelper.sharedInstance.saveToLeaderboard(swiftris.score)
+            dismissViewControllerAnimated(false, completion: nil)
+        }
+        
+        
+    }
 }
+

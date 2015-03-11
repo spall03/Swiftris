@@ -122,7 +122,6 @@ class Swiftris {
     }
     
     func endGame() {
-        score = 0
         level = 1
         delegate?.gameDidEnd(self)
     }
@@ -157,6 +156,12 @@ class Swiftris {
         if score >= level * LevelThreshold {
             level += 1
             delegate?.gameDidLevelUp(self)
+        }
+        
+        //check to see if an achievement has been hit
+        if score >= 100
+        {
+            GameKitHelper.sharedInstance.reportAchievement("SJPSwiftrisHit100Points", percentComplete: 100.0)
         }
         
         var fallenBlocks = Array<Array<Block>>()

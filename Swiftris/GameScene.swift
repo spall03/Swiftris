@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 // #1
 let BlockSize:CGFloat = 20.0
@@ -25,6 +26,8 @@ class GameScene: SKScene {
     
     var textureCache = Dictionary<String, SKTexture>()
     
+    var musicPlayer = AVAudioPlayer()
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoder not supported")
     }
@@ -34,15 +37,17 @@ class GameScene: SKScene {
         
         anchorPoint = CGPoint(x: 0, y: 1.0)
         
-        let background = SKSpriteNode(imageNamed: "background")
-        background.position = CGPoint(x: 0, y: 0)
-        background.anchorPoint = CGPoint(x: 0, y: 1.0)
-        addChild(background)
+//        let background = SKSpriteNode(color: (UIColor.lightGrayColor()), size: )
+//        background.position = CGPoint(x: 0, y: 0)
+//        background.anchorPoint = CGPoint(x: 0, y: 1.0)
+//        addChild(background)
         
         addChild(gameLayer)
         
         let gameBoardTexture = SKTexture(imageNamed: "gameboard")
         let gameBoard = SKSpriteNode(texture: gameBoardTexture, size: CGSizeMake(BlockSize * CGFloat(NumColumns), BlockSize * CGFloat(NumRows)))
+
+        
         gameBoard.anchorPoint = CGPoint(x:0, y:1.0)
         gameBoard.position = LayerPosition
         
@@ -50,17 +55,42 @@ class GameScene: SKScene {
         shapeLayer.addChild(gameBoard)
         gameLayer.addChild(shapeLayer)
         
-        runAction(SKAction.repeatActionForever(SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true)))
+        //runAction((SKAction.repeatActionForever(SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true))), withKey: "themeMusic")
         
+        playThemeMusic()
     }
     
     
 
 
 // #2
-func playSound(sound:String) {
-    runAction(SKAction.playSoundFileNamed(sound, waitForCompletion: false))
-}
+    func playThemeMusic()
+    {
+        let themeMusicFilePath = NSBundle.mainBundle().pathForResource("theme", ofType: "mp3")
+        let backgroundMusicURL = NSURL(fileURLWithPath: themeMusicFilePath!)
+        musicPlayer = AVAudioPlayer(contentsOfURL: backgroundMusicURL, error: nil)
+        
+        musicPlayer.prepareToPlay()
+        musicPlayer.volume = 1.0
+        musicPlayer.numberOfLoops = -1
+        
+        musicPlayer.play()
+    }
+    
+    func stopThemeMusic()
+    {
+        musicPlayer.pause()
+    }
+    
+    func resumeThemeMusic()
+    {
+        musicPlayer.play()
+        
+    }
+    
+    func playSound(sound:String) {
+        runAction(SKAction.playSoundFileNamed(sound, waitForCompletion: false))
+    }
 
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */

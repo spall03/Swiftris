@@ -123,13 +123,17 @@ class Shape: Hashable, Printable {
             }
         }
     }
-    
+  
+    //rewrote this to use a for-loop
     final func rotateBlocks(orientation: Orientation) {
+        
         if let blockRowColumnTranslation:Array<(columnDiff: Int, rowDiff: Int)> = blockRowColumnPositions[orientation] {
-            // #1
-            for (idx, (columnDiff:Int, rowDiff:Int)) in enumerate(blockRowColumnTranslation) {
-                blocks[idx].column = column + columnDiff
-                blocks[idx].row = row + rowDiff
+            
+            for var idx = 0; idx < blockRowColumnTranslation.count; idx++
+                {
+                let tuple = blockRowColumnTranslation[idx]
+                blocks[idx].column = column + tuple.columnDiff
+                blocks[idx].row = row + tuple.rowDiff
             }
         }
     }
